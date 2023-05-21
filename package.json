@@ -1,0 +1,21 @@
+{
+  "name": "obj-manager",
+  "version": "1.0.0",
+  "description": "Library that can help manage object structure of Javascript, find keys or values.. etc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "utility",
+    "object",
+    "array",
+    "handler",
+    "properties",
+    "functions"
+  ],
+  "author": "Sieon <coolguysiun@gmail.com>",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {}
+}
