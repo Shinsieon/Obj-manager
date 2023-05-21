@@ -77,6 +77,7 @@ var testObj2 = {
   key2: 2,
   key7: 7,
   key8: 8,
+  key9: 9,
 };
 module.exports = ObjManager;
 console.log(ObjManager.getKeysByValue(testObj, 7));
