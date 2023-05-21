@@ -56,28 +56,4 @@ ObjManager.getKeysByValue = (obj, value, keys = []) => {
   }
   return keys;
 };
-var testObj = {
-  key1: 1,
-  key2: 2,
-  key3: { key4: 4, key5: 5, key6: 6 },
-  key7: 7,
-  key8: 8,
-  key9: {
-    key10: 10,
-    key11: 11,
-    key12: {
-      key13: 13,
-      key14: 14,
-      key15: { key16: 16, key17: [17, 18, 19], key18: "string18" },
-    },
-  },
-};
-var testObj2 = {
-  key1: 1,
-  key2: 2,
-  key7: 7,
-  key8: 8,
-  key9: 9,
-};
 module.exports = ObjManager;
-console.log(ObjManager.getKeysByValue(testObj, 7));
