@@ -1,6 +1,6 @@
 {
   "name": "obj-manager",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Library that can help manage object structure of Javascript, find keys or values.. etc",
   "main": "index.js",
   "scripts": {
