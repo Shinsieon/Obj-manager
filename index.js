@@ -19,7 +19,6 @@ ObjManager.hasChildOfObj = (obj) => {
  * get All keys of Obj
  *
  * @param {Object} obj object
- * @param keys array
  * @return array
  */
 ObjManager.getAllKeys = (obj, keys = []) => {
@@ -37,23 +36,70 @@ ObjManager.getAllKeys = (obj, keys = []) => {
  * Find the key of Object by value
  *
  * @param {Object} obj object
- * @param value any
+ * @param value string || number
  * @return array
  */
 ObjManager.getKeysByValue = (obj, value, keys = []) => {
-  for (const key of Object.keys(obj)) {
-    if (typeof obj[key] === "number" || typeof obj[key] === "string") {
-      if (obj[key] == value) {
-        keys.push(key);
-      }
-    } else if (typeof obj[key] === "object") {
-      if (Array.isArray(obj[key])) {
-        if (obj[key].includes(value)) keys.push(key);
-      } else {
-        ObjManager.getKeysByValue(obj[key], value, keys);
+  if (typeof value === "number" || typeof value === "string") {
+    for (const key of Object.keys(obj)) {
+      if (typeof obj[key] === "number" || typeof obj[key] === "string") {
+        if (obj[key] == value) {
+          keys.push(key);
+        }
+      } else if (typeof obj[key] === "object") {
+        if (Array.isArray(obj[key])) {
+          if (obj[key].includes(value)) keys.push(key);
+        } else {
+          ObjManager.getKeysByValue(obj[key], value, keys);
+        }
       }
     }
-  }
-  return keys;
+    return keys;
+  } else return -1;
 };
+
+/**
+ * Find the index of key of Object by key
+ *
+ * @param {Object} obj object
+ * @param key string || number
+ * @return number
+ */
+ObjManager.getIndexOfKey = (obj, key) => {
+  if (typeof key === "number" || typeof key === "string")
+    return Object.keys(obj).indexOf(key);
+  else return -1;
+};
+
+/**
+ * Depth of value in Object
+ *
+ * @param {Object} obj object
+ * @param value string || number
+ * @return array
+ */
+ObjManager.getDepthOfValue = (obj, value, currentKey = "", keysArray = []) => {
+  if (typeof value === "number" || typeof value === "string") {
+    for (const key of Object.keys(obj)) {
+      if (obj.hasOwnProperty(key)) {
+        const currentValue = obj[key];
+
+        if (currentValue === value) {
+          keysArray.push(currentKey + key);
+        }
+
+        if (typeof currentValue === "object") {
+          ObjManager.getDepthOfValue(
+            currentValue,
+            value,
+            currentKey + key + ".",
+            keysArray
+          );
+        }
+      }
+    }
+    return keysArray;
+  } else return -1;
+};
+
 module.exports = ObjManager;
