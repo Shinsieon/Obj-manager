@@ -1,6 +1,6 @@
 # obj-manager
 
-Package for managing and handling of Object structure of Javascript.
+Package for managing and handling of Object structure in Javascript.
 
 Just use this for find all keys, values or other boring process of handling Object.
 
@@ -48,18 +48,18 @@ console.log(objM.getDepthOfValue(testObj, 6));
 
 ## Methods
 
-1. hasChildOfObj
+- hasChildOfObj
 
-- check if one of keys of Object is typeof given object
+  - check if one of keys of Object is typeof given object
 
-2. getAllKeys
+- getAllKeys
 
-- get All keys of given object
+  - get All keys of given object
 
-3. getKeysByValue
+- getKeysByValue
 
-- get all keys of Object which are exactly same as given value.
+  - get all keys of Object which are exactly same as given value.
 
-4. getDepthOfValue
+- getDepthOfValue
 
-- get depths of value.
+  - get depths of value.
